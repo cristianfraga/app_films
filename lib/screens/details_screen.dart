@@ -1,6 +1,6 @@
-import 'package:app_films/models/models.dart';
 import 'package:flutter/material.dart';
 
+import 'package:app_films/models/models.dart';
 import 'package:app_films/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -21,8 +21,6 @@ class DetailsScreen extends StatelessWidget {
               _PosterAndTitle(
                 movie: movie,
               ),
-              _Overview(movie: movie),
-              _Overview(movie: movie),
               _Overview(movie: movie),
               CastingCards(movieId: movie.id),
             ]),
@@ -86,13 +84,15 @@ class _PosterAndTitle extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: const AssetImage('assets/images/no-image.jpg'),
-              image: NetworkImage(movie.fullPosterImag),
-              height: 150,
-              width: 110,
+          Hero(
+            tag: movie.heroId!,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: FadeInImage(
+                placeholder: const AssetImage('assets/images/no-image.jpg'),
+                image: NetworkImage(movie.fullPosterImag),
+                height: 150,
+              ),
             ),
           ),
           const SizedBox(
