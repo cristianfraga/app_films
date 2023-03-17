@@ -1,2 +1,2 @@
 # app_films
-Flutter app example
+Flutter app example to learn Flutter basics
